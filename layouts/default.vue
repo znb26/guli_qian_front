@@ -131,10 +131,17 @@
   </div>
 </template>
 <script>
-import "~/assets/css/reset.css";
-import "~/assets/css/theme.css";
-import "~/assets/css/global.css";
-import "~/assets/css/web.css";
+import '~/assets/css/reset.css'
+import '~/assets/css/theme.css'
+import '~/assets/css/global.css'
+import '~/assets/css/web.css'
+import '~/assets/css/base.css'
+import '~/assets/css/activity_tab.css'
+import '~/assets/css/bottom_rec.css'
+import '~/assets/css/nice_select.css'
+import '~/assets/css/order.css'
+import '~/assets/css/swiper-3.3.1.min.css'
+import "~/assets/css/pages-weixinpay.css"
 
 import cookie from 'js-cookie'
 import loginApi from '@/api/login'
@@ -167,13 +174,14 @@ export default {
     //微信登录显示的方法
     wxLogin() {
       //console.log('************'+this.token)
-      //把token值放到cookie里面 TODO
+      //把token值放到cookie里面
       cookie.set('guli_token',this.token,{domain: 'localhost'})
       cookie.set('guli_ucenter','',{domain: 'localhost'})
      //console.log('====='+cookie.get('guli_token'))
       //调用接口，根据token值获取用户信息
       loginApi.getLoginUserInfo()
         .then(response => {
+          // console.log('################'+response.data.data.userInfo)
            this.loginInfo = response.data.data.userInfo
            cookie.set('guli_ucenter',this.loginInfo,{domain: 'localhost'})
         })
