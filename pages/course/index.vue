@@ -16,9 +16,8 @@
             <dd class="c-s-dl-li">
               <ul class="clearfix">
                 <li>
-                  <a title="全部" href="#" @click="gotoPage(1)">全部</a>
+                  <a title="全部" href="#">全部</a>
                 </li>
-                <!-- 一级分类 -->
                 <li v-for="(item,index) in subjectNestedList" :key="index" :class="{active:oneIndex==index}">
                   <a :title="item.title" href="#" @click="searchOne(item.id,index)">{{item.title}}</a>
                 </li>
@@ -32,7 +31,6 @@
             </dt>
             <dd class="c-s-dl-li">
               <ul class="clearfix">
-                <!-- 二级分类 -->
                 <li v-for="(item,index) in subSubjectList" :key="index" :class="{active:twoIndex==index}">
                   <a :title="item.title" href="#" @click="searchTwo(item.id,index)">{{item.title}}</a>
                 </li>
